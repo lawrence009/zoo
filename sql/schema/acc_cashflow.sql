@@ -14,7 +14,7 @@ CREATE TABLE acc_cashflow (
   category_id INT,
   category VARCHAR(100),
   note VARCHAR(160)
-) COMMENT = 'consolidate expense and income entries'
+) COMMENT = 'consolidated expense and income entries'
 ;
 
 -- insert personal expense
