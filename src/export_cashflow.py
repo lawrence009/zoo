@@ -11,5 +11,5 @@ engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{database}")
 
 cashflow = pd.read_sql("SELECT * FROM acc_cashflow",
                        con=engine,
-                       dtype={'date':'datetime64[ns]', 'is_expense':'bool', 'is_group':'bool'})
+                       dtype={'ts':'datetime64[ns]', 'is_expense':'bool', 'is_group':'bool'})
 cashflow.to_feather('cashflow.feather')

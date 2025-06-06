@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS acc_cashflow;
 
 CREATE TABLE acc_cashflow (
 	user_id VARCHAR(100) NOT NULL,
-  date DATE NOT NULL,
+  ts DATETIME NOT NULL,
   amt DOUBLE NOT NULL,
   is_expense BOOLEAN,
 	is_group BOOLEAN,
@@ -21,7 +21,7 @@ CREATE TABLE acc_cashflow (
 INSERT INTO acc_cashflow
 SELECT
   USER_ID user_id,
-  DATE(CREDTM) date,
+  CREDTM ts,
   -AMOUNT amt,
   TRUE is_expense,
 	FALSE is_group,
@@ -38,7 +38,7 @@ ON A.CATEGORY = B.ID
 INSERT INTO acc_cashflow
 SELECT
   USER_ID user_id,
-  DATE(CREDTM) date,
+  CREDTM ts,
   -AMOUNT amt,
   TRUE is_expense,
 	TRUE is_group,
@@ -55,7 +55,7 @@ ON A.CATEGORY = B.ID
 INSERT INTO acc_cashflow
 SELECT
   USER_ID user_id,
-  DATE(CREDTM) date,
+  CREDTM ts,
   AMOUNT amt,
   FALSE is_expense,
 	FALSE is_group,
@@ -72,7 +72,7 @@ ON A.CATEGORY = B.ID
 INSERT INTO acc_cashflow
 SELECT
   USER_ID user_id,
-  DATE(CREDTM) date,
+  CREDTM ts,
   AMOUNT amt,
   FALSE is_expense,
 	TRUE is_group,
