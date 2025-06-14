@@ -5,7 +5,7 @@ import pandas as pd
 user = os.getenv("MYSQL_USER")
 password = os.getenv("MYSQL_PASSWORD")
 host = "localhost"
-database = "zoo"
+database = "checkchick"
 
 engine = create_engine(f"mysql+pymysql://{user}:{password}@{host}/{database}")
 
